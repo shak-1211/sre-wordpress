@@ -1,0 +1,5 @@
+FROM wordpress:6.6.2
+
+#Expose port 80
+EXPOSE 80
+
