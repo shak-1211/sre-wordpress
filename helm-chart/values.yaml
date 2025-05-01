@@ -1,0 +1,28 @@
+replicaCount: 2
+image:
+  repository: 151287120928.dkr.ecr.us-east-1.amazonaws.com/sre-wordpress
+  pullPolicy: IfNotPresent
+  tag: "latest"
+service:
+  type: ClusterIP
+  port: 80
+ingress:
+  enabled: false
+env:
+  - name: WORDPRESS_DB_HOST
+    value: wordpress-db.cgjoimyigcom.us-east-1.rds.amazonaws.com
+  - name: WORDPRESS_DB_USER
+    value: wordpress
+  - name: WORDPRESS_DB_PASSWORD
+    value: wordpress123
+  - name: WORDPRESS_DB_NAME
+    value: wordpress
+serviceAccount:
+  create: false
+  annotations: {}
+  name: ""
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
