@@ -1,0 +1,11 @@
+# Terraform files
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+
+# Local environment files
+*.env
+*.log
+
+# OS-specific files
+.DS_Store
